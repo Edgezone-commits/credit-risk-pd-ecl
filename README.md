@@ -27,7 +27,7 @@ IFRS 9 / NFRS-aligned banking risk management.
   (21.2% for male customers vs. 17.4% for female customers), which is documented
   rather than hidden
 
-  ## Business Problem
+## Business Problem
 
 Retail lenders need to estimate, for every customer, the probability that they will
 default on their credit obligations — and translate that probability into a concrete
@@ -93,6 +93,8 @@ Several public datasets were evaluated before choosing this one:
 | Home Credit Default Risk (Kaggle) | Rejected | Real and high-quality, but 7 relational tables — too large in scope for the available timeline |
 | **UCI Default of Credit Card Clients** | **Selected** | Real, peer-reviewed, DOI-registered, CC BY 4.0, single clean table, directly maps to a bank credit-risk use case |
 
+---
+
 ## Methodology
 
 The project follows a standard, reproducible data science pipeline. Each stage is
@@ -146,6 +148,8 @@ never committed — it is downloaded fresh via the UCI API on first run
 
 ![Default rate by demographics](reports/figures/default_rate_by_category.png)
 ![Default rate by repayment status](reports/figures/default_rate_by_pay0.png)
+
+---
 
 ## Feature Engineering
 
@@ -203,6 +207,8 @@ identical between the two models).
 **5-fold cross-validation** (mean AUC 0.781, std 0.005) confirms the single
 train/test split result (0.772) was not a lucky or unlucky draw — performance is
 stable across different data partitions.
+
+---
 
 ## Calibration
 
@@ -312,6 +318,8 @@ Despite these simplifications, the PD component — the hardest part to get righ
 is demonstrably well-calibrated, which is the piece most directly transferable to
 a real ECL pipeline.
 
+---
+
 ## Explainability
 
 SHAP (SHapley Additive exPlanations) with `TreeExplainer` was applied to the
@@ -384,6 +392,8 @@ without a dedicated fairness mitigation step. This audit demonstrates the *metho
 for detecting disparate impact — not a bias-free model — which is an honest and
 appropriately scoped claim for this project.
 
+---
+
 ## Overall Limitations
 
 - **Dataset age and geography:** data is from Taiwan, 2005. Consumer credit
@@ -421,10 +431,10 @@ appropriately scoped claim for this project.
 ## How to Reproduce
 
 ```bash
-git clone <your-repo-url>
+git clone https://github.com/Edgezone-commits/credit-risk-pd-ecl.git
 cd credit-risk-pd-ecl
 python -m venv .venv
-.venv\Scripts\Activate.ps1        # Windows PowerShell
+.venv\Scripts\Activate.ps1
 pip install -r requirements.txt
 jupyter notebook
 ```
@@ -433,36 +443,37 @@ Run the notebooks in order (01 → 07). Raw data is downloaded automatically fro
 UCI on first run (`src/data.py`) — no manual download needed. Random seeds are
 fixed throughout (`random_state=42`) for reproducibility.
 
+---
+
 ## Project Structure
 credit-risk-pd-ecl/
 ├── README.md
 ├── requirements.txt
 ├── .gitignore
 ├── data/
-│ ├── raw/ # downloaded automatically, not committed
-│ └── processed/ # cleaned/feature-engineered data, not committed
+│   ├── raw/           (downloaded automatically, not committed)
+│   └── processed/     (cleaned/feature-engineered data, not committed)
 ├── notebooks/
-│ ├── 01_data_verification.ipynb
-│ ├── 02_eda.ipynb
-│ ├── 03_feature_engineering.ipynb
-│ ├── 04_modelling.ipynb
-│ ├── 05_evaluation.ipynb
-│ ├── 06_explainability.ipynb
-│ └── 07_fairness_audit.ipynb
+│   ├── 01_data_verification.ipynb
+│   ├── 02_eda.ipynb
+│   ├── 03_feature_engineering.ipynb
+│   ├── 04_modelling.ipynb
+│   ├── 05_evaluation.ipynb
+│   ├── 06_explainability.ipynb
+│   └── 07_fairness_audit.ipynb
 ├── src/
-│ ├── data.py # UCI loader + cleaning
-│ └── features.py # feature engineering
+│   ├── data.py         (UCI loader + cleaning)
+│   └── features.py     (feature engineering)
 ├── reports/
-│ └── figures/ # saved charts, referenced in this README
-└── app/ # (optional) Streamlit demo
-
+│   └── figures/         (saved charts, referenced in this README)
+└── app/                 (optional Streamlit demo)
 ---
 
 ## Author
 
-**[Parashar Wagle]**
+**Parashar Wagle**
 BSc (Hons) Computing with AI — final year student
-[https://www.linkedin.com/in/parashar-wagle-a0a439319/] · [https://github.com/Edgezone-commits] · [waglep278@gmail.com]
+[LinkedIn](https://www.linkedin.com/in/parashar-wagle-a0a439319/) · [GitHub](https://github.com/Edgezone-commits) · waglep278@gmail.com
 
 *This project was built as a focused portfolio piece demonstrating credit risk
 modelling methodology: calibrated probability estimation, cost-based decision
