@@ -2,7 +2,7 @@ from pathlib import Path
 import pandas as pd
 from ucimlrepo import fetch_ucirepo
 
-RAW_PATH = Path("data/raw/credit_default.csv")
+RAW_PATH = PROJECT_ROOT / "data" / "raw" / "credit_default.csv"
 
 FEATURES = (["LIMIT_BAL", "SEX", "EDUCATION", "MARRIAGE", "AGE",
              "PAY_0", "PAY_2", "PAY_3", "PAY_4", "PAY_5", "PAY_6"]

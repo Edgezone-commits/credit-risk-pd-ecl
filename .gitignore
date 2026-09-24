@@ -1,0 +1,11 @@
+﻿data/raw/
+data/processed/
+__pycache__/
+.ipynb_checkpoints/
+.venv/
+*.pyc
+.DS_Store
+mlruns/
+
+.ipynb_checkpoints/
+*.joblib
