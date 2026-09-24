@@ -446,13 +446,15 @@ fixed throughout (`random_state=42`) for reproducibility.
 ---
 
 ## Project Structure
+
+```
 credit-risk-pd-ecl/
 ├── README.md
 ├── requirements.txt
 ├── .gitignore
 ├── data/
-│   ├── raw/           (downloaded automatically, not committed)
-│   └── processed/     (cleaned/feature-engineered data, not committed)
+│   ├── raw/               (downloaded automatically, not committed)
+│   └── processed/         (cleaned/feature-engineered data, not committed)
 ├── notebooks/
 │   ├── 01_data_verification.ipynb
 │   ├── 02_eda.ipynb
@@ -462,11 +464,13 @@ credit-risk-pd-ecl/
 │   ├── 06_explainability.ipynb
 │   └── 07_fairness_audit.ipynb
 ├── src/
-│   ├── data.py         (UCI loader + cleaning)
-│   └── features.py     (feature engineering)
+│   ├── data.py             (UCI loader + cleaning)
+│   └── features.py         (feature engineering)
 ├── reports/
-│   └── figures/         (saved charts, referenced in this README)
-└── app/                 (optional Streamlit demo)
+│   └── figures/            (saved charts, referenced in this README)
+└── app/                    (optional Streamlit demo)
+```
+
 ---
 
 ## Author
