@@ -27,6 +27,19 @@ IFRS 9 / NFRS-aligned banking risk management.
   (21.2% for male customers vs. 17.4% for female customers), which is documented
   rather than hidden
 
+## Live Demo
+
+An interactive Streamlit app lets you input a hypothetical customer's profile and see
+predicted probability of default, risk band, Expected Credit Loss, and a SHAP-based
+explanation of the prediction in real time.
+
+**Run locally:**
+```bash
+streamlit run app/app.py
+```
+
+*(Not deployed publicly — run locally after cloning, per the Reproduce section below.)*
+
 ## Business Problem
 
 Retail lenders need to estimate, for every customer, the probability that they will
